@@ -128,7 +128,7 @@ namespace inst::ui {
         this->menu->AddItem(autoUpdateOption);
         auto useAudioOption = pu::ui::elm::MenuItem::New("options.menu_items.use_audio"_lang);
         useAudioOption->SetColor(COLOR("#FFFFFFFF"));
-        gayModeOption->SetIcon(this->getMenuOptionIcon(inst::config::useAudio));
+        useAudioOption->SetIcon(this->getMenuOptionIcon(inst::config::useAudio));
         this->menu->AddItem(useAudioOption);
         auto sigPatchesUrlOption = pu::ui::elm::MenuItem::New("options.menu_items.sig_url"_lang + inst::util::shortenString(inst::config::sigPatchesUrl, 42, false));
         sigPatchesUrlOption->SetColor(COLOR("#FFFFFFFF"));

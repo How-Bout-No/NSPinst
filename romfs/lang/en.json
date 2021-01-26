@@ -146,6 +146,7 @@
             "nca_verify": "Verify NCA signatures before installation",
             "boost_mode": "Enable \"boost mode\" during installations",
             "ask_delete": "Ask to delete original files after installation",
+            "use_audio": "Enable sound effects",
             "auto_update": "Check for updates to NSPinst automatically",
             "sig_url": "Signature patches source URL: ",
             "language": "Language: ",
