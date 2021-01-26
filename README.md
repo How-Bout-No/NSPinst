@@ -1,4 +1,4 @@
-# Awoo Installer
+# NSPinst
 A No-Bullshit NSP, NSZ, XCI, and XCZ Installer for Nintendo Switch
 
 ![Awoo Installer Main Menu](https://i.imgur.com/q5Qff0R.jpg)
@@ -19,11 +19,9 @@ Because Goldleaf tends to not "Just werk" when installing NSP files. I wanted a 
 If you want to do other things like manage installed tickets, titles, and user accounts, check out [Goldleaf](https://github.com/XorTroll/Goldleaf)!
 
 ## Thanks to
+- Huntereb & Behemoth for Awoo Installer
 - HookedBehemoth for A LOT of contributions
 - Adubbz and other contributors for [Tinfoil](https://github.com/Adubbz/Tinfoil)
 - XorTroll for [Plutonium](https://github.com/XorTroll/Plutonium) and [Goldleaf](https://github.com/XorTroll/Goldleaf)
 - blawar (wife strangulator) and nicoboss for [NSZ](https://github.com/nicoboss/nsz) support
-- The kind folks at the AtlasNX Discuck (or at least some of them)
-- The also kind folks at the RetroNX Discuck (of no direct involvement)
-- [namako8982](https://www.pixiv.net/member.php?id=14235616) for the Momiji art
 - TheXzoron for being a baka
