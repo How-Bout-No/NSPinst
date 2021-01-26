@@ -136,7 +136,12 @@ namespace usbInstStuff {
             fprintf(stdout, "%s", e.what());
             inst::ui::instPage::setInstInfoText("inst.info_page.failed"_lang + fileNames[fileItr]);
             inst::ui::instPage::setInstBarPerc(0);
+            std::string audioPath = "romfs:/audio/warn.wav";
+            if (inst::config::useAudio) audioPath = "";
+            if (std::filesystem::exists(inst::config::appDir + "/warn.wav")) audioPath = inst::config::appDir + "/warn.wav";
+            std::thread audioThread(inst::util::playAudio,audioPath);
             inst::ui::mainApp->CreateShowDialog("inst.info_page.failed"_lang + fileNames[fileItr] + "!", "inst.info_page.failed_desc"_lang + "\n\n" + (std::string)e.what(), {"common.ok"_lang}, true);
+            audioThread.join();
             nspInstalled = false;
         }
 
@@ -150,8 +155,13 @@ namespace usbInstStuff {
             tin::util::USBCmdManager::SendExitCmd();
             inst::ui::instPage::setInstInfoText("inst.info_page.complete"_lang);
             inst::ui::instPage::setInstBarPerc(100);
+            std::string audioPath = "romfs:/audio/success.wav";
+            if (inst::config::useAudio) audioPath = "";
+            if (std::filesystem::exists(inst::config::appDir + "/success.wav")) audioPath = inst::config::appDir + "/success.wav";
+            std::thread audioThread(inst::util::playAudio,audioPath);
             if (ourTitleList.size() > 1) inst::ui::mainApp->CreateShowDialog(std::to_string(ourTitleList.size()) + "inst.info_page.desc0"_lang, Language::GetRandomMsg(), {"common.ok"_lang}, true);
             else inst::ui::mainApp->CreateShowDialog(fileNames[0] + "inst.info_page.desc1"_lang, Language::GetRandomMsg(), {"common.ok"_lang}, true);
+            audioThread.join();
         }
         
         LOG_DEBUG("Done");

@@ -17,6 +17,7 @@ namespace inst::config {
     extern bool overClock;
     extern bool deletePrompt;
     extern bool autoUpdate;
+    extern bool useAudio;
     extern bool usbAck;
 
     void setConfig();
