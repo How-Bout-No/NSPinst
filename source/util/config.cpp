@@ -22,7 +22,7 @@ namespace inst::config {
             {"autoUpdate", autoUpdate},
             {"deletePrompt", deletePrompt},
             {"gAuthKey", gAuthKey},
-            {"useAudio", useAudio};
+            {"useAudio", useAudio},
             {"ignoreReqVers", ignoreReqVers},
             {"languageSetting", languageSetting},
             {"overClock", overClock},
