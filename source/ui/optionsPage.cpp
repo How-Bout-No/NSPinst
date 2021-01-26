@@ -25,14 +25,8 @@ namespace inst::ui {
         this->topRect = Rectangle::New(0, 0, 1280, 94, COLOR("#170909FF"));
         this->infoRect = Rectangle::New(0, 95, 1280, 60, COLOR("#17090980"));
         this->botRect = Rectangle::New(0, 660, 1280, 60, COLOR("#17090980"));
-        if (inst::config::gayMode) {
-            this->titleImage = Image::New(-113, 0, "romfs:/images/logo.png");
-            this->appVersionText = TextBlock::New(367, 49, "v" + inst::config::appVersion, 22);
-        }
-        else {
-            this->titleImage = Image::New(0, 0, "romfs:/images/logo.png");
-            this->appVersionText = TextBlock::New(480, 49, "v" + inst::config::appVersion, 22);
-        }
+        this->titleImage = Image::New(0, 0, "romfs:/images/logo.png");
+        this->appVersionText = TextBlock::New(242, 25, "v" + inst::config::appVersion, 22);
         this->appVersionText->SetColor(COLOR("#FFFFFFFF"));
         this->pageInfoText = TextBlock::New(10, 109, "options.title"_lang, 30);
         this->pageInfoText->SetColor(COLOR("#FFFFFFFF"));
@@ -132,10 +126,6 @@ namespace inst::ui {
         autoUpdateOption->SetColor(COLOR("#FFFFFFFF"));
         autoUpdateOption->SetIcon(this->getMenuOptionIcon(inst::config::autoUpdate));
         this->menu->AddItem(autoUpdateOption);
-        auto gayModeOption = pu::ui::elm::MenuItem::New("options.menu_items.gay_option"_lang);
-        gayModeOption->SetColor(COLOR("#FFFFFFFF"));
-        gayModeOption->SetIcon(this->getMenuOptionIcon(inst::config::gayMode));
-        this->menu->AddItem(gayModeOption);
         auto sigPatchesUrlOption = pu::ui::elm::MenuItem::New("options.menu_items.sig_url"_lang + inst::util::shortenString(inst::config::sigPatchesUrl, 42, false));
         sigPatchesUrlOption->SetColor(COLOR("#FFFFFFFF"));
         this->menu->AddItem(sigPatchesUrlOption);
@@ -188,40 +178,18 @@ namespace inst::ui {
                     this->setMenuText();
                     break;
                 case 5:
-                    if (inst::config::gayMode) {
-                        inst::config::gayMode = false;
-                        mainApp->mainPage->awooImage->SetVisible(true);
-                        mainApp->instpage->awooImage->SetVisible(true);
-                        mainApp->instpage->titleImage->SetX(0);
-                        mainApp->instpage->appVersionText->SetX(480);
-                        mainApp->mainPage->titleImage->SetX(0);
-                        mainApp->mainPage->appVersionText->SetX(480);
-                        mainApp->netinstPage->titleImage->SetX(0);
-                        mainApp->netinstPage->appVersionText->SetX(480);
-                        mainApp->optionspage->titleImage->SetX(0);
-                        mainApp->optionspage->appVersionText->SetX(480);
-                        mainApp->sdinstPage->titleImage->SetX(0);
-                        mainApp->sdinstPage->appVersionText->SetX(480);
-                        mainApp->usbinstPage->titleImage->SetX(0);
-                        mainApp->usbinstPage->appVersionText->SetX(480);
-                    }
-                    else {
-                        inst::config::gayMode = true;
-                        mainApp->mainPage->awooImage->SetVisible(false);
-                        mainApp->instpage->awooImage->SetVisible(false);
-                        mainApp->instpage->titleImage->SetX(-113);
-                        mainApp->instpage->appVersionText->SetX(367);
-                        mainApp->mainPage->titleImage->SetX(-113);
-                        mainApp->mainPage->appVersionText->SetX(367);
-                        mainApp->netinstPage->titleImage->SetX(-113);
-                        mainApp->netinstPage->appVersionText->SetX(367);
-                        mainApp->optionspage->titleImage->SetX(-113);
-                        mainApp->optionspage->appVersionText->SetX(367);
-                        mainApp->sdinstPage->titleImage->SetX(-113);
-                        mainApp->sdinstPage->appVersionText->SetX(367);
-                        mainApp->usbinstPage->titleImage->SetX(-113);
-                        mainApp->usbinstPage->appVersionText->SetX(367);
-                    }
+                    mainApp->instpage->titleImage->SetX(0);
+                    mainApp->instpage->appVersionText->SetX(242);
+                    mainApp->mainPage->titleImage->SetX(0);
+                    mainApp->mainPage->appVersionText->SetX(242);
+                    mainApp->netinstPage->titleImage->SetX(0);
+                    mainApp->netinstPage->appVersionText->SetX(242);
+                    mainApp->optionspage->titleImage->SetX(0);
+                    mainApp->optionspage->appVersionText->SetX(242);
+                    mainApp->sdinstPage->titleImage->SetX(0);
+                    mainApp->sdinstPage->appVersionText->SetX(242);
+                    mainApp->usbinstPage->titleImage->SetX(0);
+                    mainApp->usbinstPage->appVersionText->SetX(242);
                     inst::config::setConfig();
                     this->setMenuText();
                     break;

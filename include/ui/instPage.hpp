@@ -12,7 +12,6 @@ namespace inst::ui {
             TextBlock::Ref pageInfoText;
             TextBlock::Ref installInfoText;
             pu::ui::elm::ProgressBar::Ref installBar;
-            Image::Ref awooImage;
             Image::Ref titleImage;
             TextBlock::Ref appVersionText;
             static void setTopInstInfoText(std::string ourText);

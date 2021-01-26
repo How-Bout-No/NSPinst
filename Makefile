@@ -42,7 +42,7 @@ BUILD		:=	build
 SOURCES		:=	source source/ui source/data source/install source/nx source/nx/ipc source/util
 DATA		:=	data
 INCLUDES	:=	include include/ui include/data include/install include/nx include/nx/ipc include/util include/Plutonium/Plutonium/Output-switch/include
-APP_TITLE	:=	Awoo Installer
+APP_TITLE	:=	NSPinst
 APP_AUTHOR	:=	Huntereb & Behemoth
 APP_VERSION	:=	1.3.4
 ROMFS		:=	romfs
@@ -66,7 +66,6 @@ ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=$(DEVKITPRO)/libnx/switch.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
 LIBS	:=  `curl-config --libs` # Networking
-LIBS	+=	-lSDL2_mixer -lopusfile -lopus -lmodplug -lmpg123 -lvorbisidec -logg # Audio
 LIBS	+=	-lpu -lSDL2_gfx -lSDL2_image -lwebp -lpng -ljpeg `sdl2-config --libs` `freetype-config --libs` # Graphics
 LIBS	+=	-lmbedtls -lmbedcrypto -lminizip -lzstd # Memes
 
@@ -172,7 +171,7 @@ all: $(BUILD)
 $(BUILD):
 	@[ -d $@ ] || mkdir -p $@
 	#comment this out if you are hacking on the code or compilation will take forever
-	$(MAKE) --no-print-directory -C include/Plutonium -f Makefile lib
+	#$(MAKE) --no-print-directory -C include/Plutonium -f Makefile lib
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
 #---------------------------------------------------------------------------------
